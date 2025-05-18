@@ -1,0 +1,51 @@
+graph TD
+    subgraph Input
+        data[Raw Data]
+    end
+    
+    subgraph Preprocessing
+        load[Load Data]
+        qc[Quality Control]
+        filt[Cell Filtering]
+        norm[Normalization]
+        hvg[Feature Selection]
+    end
+    
+    subgraph Analysis
+        pca[PCA]
+        batch[Batch Correction]
+        neigh[Neighbor Graph]
+        clust[Clustering]
+        umap[UMAP Visualization]
+        mark[Marker Detection]
+    end
+    
+    subgraph Results
+        path[Pathway Analysis]
+        traj[Trajectory Analysis]
+        viz[Visualization]
+        export[Export Results]
+    end
+    
+    data --> load
+    load --> qc
+    qc --> filt
+    filt --> norm
+    norm --> hvg
+    hvg --> pca
+    pca --> batch
+    batch --> neigh
+    neigh --> clust
+    neigh --> umap
+    clust --> mark
+    mark --> path
+    umap --> traj
+    clust --> traj
+    path --> viz
+    traj --> viz
+    viz --> export
+    
+    style Input fill:#f9f9f9,stroke:#333,stroke-width:1px
+    style Preprocessing fill:#e1f5fe,stroke:#333,stroke-width:1px
+    style Analysis fill:#e8f5e9,stroke:#333,stroke-width:1px
+    style Results fill:#fff3e0,stroke:#333,stroke-width:1px 

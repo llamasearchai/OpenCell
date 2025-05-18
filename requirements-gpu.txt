@@ -1,0 +1,18 @@
+# GPU specific dependencies
+# These require appropriate CUDA toolkit installation
+
+# PyTorch with CUDA
+torch>=2.0.0
+
+# RAPIDS ecosystem 
+# Note: These are often best installed via conda or the RAPIDS Docker images
+# but are listed here for pip installation where possible
+cupy-cuda11x>=12.0.0  # Or cupy-cuda12x depending on your CUDA version
+# cudf and cuml should be installed following RAPIDS installation guides
+
+# GPU-accelerated dimensionality reduction
+umap-learn>=0.5.0
+
+# Note: Install RAPIDS (cuDF, cuML) using:
+# conda install -c rapidsai -c conda-forge -c nvidia \
+#               cudf=23.06 cuml=23.06 python=3.9 cuda-version=11.8 
